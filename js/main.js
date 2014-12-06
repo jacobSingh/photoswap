@@ -15,17 +15,18 @@ DEBUG = false;
         /**
          * Returns null on failure, data-uri on success.
          */
-        var makeFace = function(img) {
+        var makeFace = function(img, cb) {
             $(img).faceDetection({
                 complete: function (faces) {
                     highLight(this, faces);
                     var vData;
                     if (faces.length < 1) {
                         console.log('aborting... no detection');
-                        return null;
+                        cb(null);
                     }
 
-                    return vData = cropFace(this[0], faces[0]);
+                    vData = cropFace(this[0], faces[0]);
+                    cb(vData);
                 }
             });
         };
@@ -46,17 +47,16 @@ DEBUG = false;
             }
         }
 
-        function takeSnapshot(cb) {
+        function takeSnapshot() {
             Webcam.snap( function(data_uri) {
                 $('#picture').attr('src', data_uri);
-                $('#picture').load(cb);
             } );
         };
 
         var addFaceToFaces = function() {
             var img, myFace;
             myFace = $('<img />');
-            myFace.attr('src', $('canvas', this)[0].toDataURL());
+            myFace.attr('src', $('#face')[0].toDataURL());
             $('#faces').append(myFace);
         }
 
@@ -115,28 +115,38 @@ DEBUG = false;
                 makeMix();
             }
 
-            var photos = 3;
+            var photos = 8;
             var interval = 0;
+            var maxTries = 100;
 
             function run() {
-                if (photos === 0) {
+                maxTries--;
+                console.log(photos);
+
+                takeSnapshot();
+                if ((maxTries == 0) || (photos == 0)) {
                     clearTimeout(interval);
                     finish();
                     return;
                 }
-                takeSnapshot(function() {
-                    if (makeFace(this) != null) {
-                        // fail;
-                        $('#face-wrapper').click();
+
+                $('#picture').faceDetection({
+                    complete: function (faces) {
+                        var vData;
+                        if (faces.length < 1) {
+                            console.log('aborting... no detection');
+                        } else {
+                            cropFace(this[0], faces[0]);
+                            addFaceToFaces();
+                            photos--;
+                        }
+                        interval = setTimeout(run, 1000);
                     }
                 });
 
-
-                photos--;
-                interval = setTimeout(run, 500);
             }
 
-            interval = setTimeout(run, 500);
+            interval = setTimeout(run, 1000);
         });
 
         if (DEBUG === true && DEBUG_FROM === "mix") {
