@@ -11,3 +11,5 @@
 [Sat Dec 06 16:40:41 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face1.jpg, referer: http://photoswap/
 [Sat Dec 06 16:40:41 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face2.jpg, referer: http://photoswap/
 [Sat Dec 06 16:40:41 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face3.jpg, referer: http://photoswap/
+[Sat Dec 06 16:52:54 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/undefined, referer: http://photoswap/
+[Sat Dec 06 16:53:16 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/undefined, referer: http://photoswap/

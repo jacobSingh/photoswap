@@ -12,17 +12,20 @@ DEBUG = false;
 
         DEBUG == true && $('#picture').attr('src', 'img/demo.jpg');
 
-        var makeFace = function() {
-            $(this).faceDetection({
+        /**
+         * Returns null on failure, data-uri on success.
+         */
+        var makeFace = function(img) {
+            $(img).faceDetection({
                 complete: function (faces) {
                     highLight(this, faces);
                     var vData;
                     if (faces.length < 1) {
                         console.log('aborting... no detection');
-                        return;
+                        return null;
                     }
 
-                    vData = cropFace(this[0], faces[0]);
+                    return vData = cropFace(this[0], faces[0]);
                 }
             });
         };
@@ -43,10 +46,10 @@ DEBUG = false;
             }
         }
 
-        function takeSnapshot() {
+        function takeSnapshot(cb) {
             Webcam.snap( function(data_uri) {
-                console.log(data_uri.length);
                 $('#picture').attr('src', data_uri);
+                $('#picture').load(cb);
             } );
         };
 
@@ -101,10 +104,40 @@ DEBUG = false;
 
         //function getSection(img, )
 
-        $('#picture').click(makeFace);
+        $('#picture').click(function() {makeFace(this)});
         $('#my-camera').click(takeSnapshot);
         $('#face-wrapper').click(addFaceToFaces);
         $('#mix').click(makeMix);
+
+        $('#go').click(function() {
+
+            function finish() {
+                makeMix();
+            }
+
+            var photos = 3;
+            var interval = 0;
+
+            function run() {
+                if (photos === 0) {
+                    clearTimeout(interval);
+                    finish();
+                    return;
+                }
+                takeSnapshot(function() {
+                    if (makeFace(this) != null) {
+                        // fail;
+                        $('#face-wrapper').click();
+                    }
+                });
+
+
+                photos--;
+                interval = setTimeout(run, 500);
+            }
+
+            interval = setTimeout(run, 500);
+        });
 
         if (DEBUG === true && DEBUG_FROM === "mix") {
             myFace = $('<img />');
