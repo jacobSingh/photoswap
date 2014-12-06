@@ -1,2 +1,13 @@
 [Sat Dec 06 12:38:50 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/favicon.ico, referer: http://photoswap/
 [Sat Dec 06 12:39:36 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/favicon.ico
+[Sat Dec 06 13:12:44 2014] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Users/jacob/Sites/photoswap/stuff/
+[Sat Dec 06 13:47:52 2014] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Users/jacob/Sites/photoswap/js/
+[Sat Dec 06 13:48:00 2014] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Users/jacob/Sites/photoswap/js/jquery.facedetection/examples/
+[Sat Dec 06 13:48:02 2014] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Users/jacob/Sites/photoswap/js/jquery.facedetection/examples/img/
+[Sat Dec 06 13:48:13 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/js/jquery.facedetection/examples/img.html
+[Sat Dec 06 16:40:04 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face2.jpg, referer: http://photoswap/
+[Sat Dec 06 16:40:04 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face3.jpg, referer: http://photoswap/
+[Sat Dec 06 16:40:04 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face1.jpg, referer: http://photoswap/
+[Sat Dec 06 16:40:41 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face1.jpg, referer: http://photoswap/
+[Sat Dec 06 16:40:41 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face2.jpg, referer: http://photoswap/
+[Sat Dec 06 16:40:41 2014] [error] [client 127.0.0.1] File does not exist: /Users/jacob/Sites/photoswap/img/face3.jpg, referer: http://photoswap/

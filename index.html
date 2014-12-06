@@ -29,9 +29,24 @@
         <p>Hello world! This is HTML5 Boilerplate.</p>
 
 
+
         <div id="my-camera"></div>
-        <img id="picture" />
-        <img id="face" />
+        <div class="picture-container">
+            <img id="picture" />
+        </div>
+        <div id="face-wrapper">
+            <canvas id="face" width="200" height="200"/>
+        </div>
+
+        <div id="faces">
+
+        </div>
+        <div id="result-wrapper">
+            <button id="mix">Mix!</button>
+            <canvas id="result" width="200" height="200">
+            <div id="result-test">
+        </div>
+
 
 
         <script src="js/webcamjs/webcam.js"></script>
