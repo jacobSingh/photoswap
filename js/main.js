@@ -160,8 +160,37 @@ DEBUG = false;
             myFace.attr('src', 'img/face3.jpg');
             $('#faces').append(myFace);
         }
-    });
 
+
+
+        document.onkeydown = checkKey;
+
+        function checkKey(e) {
+
+            e = e || window.event;
+
+            if (e.keyCode == '38') {
+                takeSnapshot();
+                $('#picture').faceDetection({
+                    complete: function (faces) {
+                        var vData;
+                        if (faces.length < 1) {
+                            console.log('aborting... no detection');
+                        } else {
+                            for(i=0; i<faces.length; i++) {
+                                cropFace(this[0], faces[i]);
+                                addFaceToFaces();
+                            }
+                        }
+                    }
+                });
+            }
+            else if (e.keyCode == '40') {
+                $('#mix').click();
+            }
+        }
+
+    });
 })(jQuery);
 
 
