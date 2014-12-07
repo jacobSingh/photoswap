@@ -1,0 +1,26 @@
+.face-library {
+    overflow: auto;
+}
+
+.face-library li {
+    list-style: none;
+}
+
+.face-library li {
+    width:100px;
+    float:left;
+    margin:5px 5px 0 0 ;
+}
+
+.face-library li img {
+    width: 100px;
+}
+
+#cam {
+    min-height:240px;
+}
+
+.face {
+    position: absolute;
+    border: 2px solid #FFF;
+}
