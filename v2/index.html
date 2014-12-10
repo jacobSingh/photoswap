@@ -22,13 +22,11 @@
       <div class="large-12 columns">
           <div class="nav-bar right">
               <ul class="button-group">
-                  <li><a href="#" class="button">Link 1</a></li>
-                  <li><a href="#" class="button">Link 2</a></li>
-                  <li><a href="#" class="button">Link 3</a></li>
-                  <li><a href="#" class="button">Link 4</a></li>
+                  <li><a href="#" class="button">About</a></li>
+
               </ul>
           </div>
-          <h1>Blog <small>This is my blog. It's awesome.</small></h1>
+          <h1>PhotoMashup! <small>Ugly mashups of your face </small></h1>
           <hr/>
       </div>
   </div>
@@ -40,11 +38,12 @@
       <div class="large-8 columns" role="content">
 
 
-              <h3><a href="#">Photobooth</a></h3>
-              <div class="panel">
+              <h3 class="photo-booth"><a href="#">Photobooth</a></h3>
+              <h3 class="mashup-maker"><a href="#">Mashups</a></h3>
+              <div class="panel photo-booth" >
                   <div class="row">
                       <div class="large-6 columns">
-                          <div id="cam">.aa..</div>
+                          <div id="cam"></div>
                       </div>
                       <div class="large-6 columns">
                           <div id="last"><img src=""/></div>
@@ -52,22 +51,48 @@
                   </div>
 
               </div>
+              <div class="panel mashup-maker" >
+                  <img id="mashup">
+                  <div class="mashup-error">Oops! You don't have enough pictures yet. Switch back to the photobooth mode and take at least 3</div>
+              </div>
               <div class="panel">
+
+                  <!-- Using class options -->
+                  <div class="small-6 switch large round">
+                      <input id="d" name="switch-d" type="radio" checked="">
+                      <label for="d" onclick="">Off</label>
+
+                      <input id="d1" name="switch-d" type="radio">
+                      <label for="d1" onclick="">On</label>
+
+                      <span></span>
+                  </div>
                   <div class="switch round large">
                       <a href="#" class="button">Photobooth</a>
-                      <input id="exampleRadioSwitch3" type="radio" name="testGroup">
-                      <label for="exampleRadioSwitch3">Thing</label>
+                      <input id="mode-switch" type="checkbox">
+                      <label for="mode-switch">Thing</label>
                       <a href="#" class="button [radius round]">Mixer</a>
                   </div>
               </div>
-              <div class="panel">
-                  <ul class="click-photo button-group [radius round]">
-                      <li><a href="#" data-no="1" class="button [secondary alert success]">Click 1</a></li>
-                      <li><a href="#" data-no="3" class="button [secondary alert success]">Click 3</a></li>
-                      <li><a href="#" class="button [secondary alert success]">Click 8</a></li>
-                      <li><a href="#" class="button [secondary alert success]">Keep Clicking</a></li>
-                  </ul>
-              </div>
+              <row class="controls">
+                  <div class="panel photo-booth">
+                      <ul class="click-photo button-group [radius round]">
+                          <li><a href="#" data-number="1" class="button [secondary alert success]">Click 1</a></li>
+                          <li><a href="#" data-number="3" class="button [secondary alert success]">Click 3</a></li>
+                          <li><a href="#" data-number="8" class="button [secondary alert success]">Click 8</a></li>
+                          <!--<li><a href="#" class="button [secondary alert success]">Keep Clicking</a></li>-->
+                      </ul>
+                  </div>
+                  <div class="panel mashup-maker">
+                      <ul class="mashup-buttons button-group [radius round]">
+                          <li><a href="#" class="mashup-button button [secondary alert success]">MASHUP!</a></li>
+                          <li><a href="#" class="mashup-crazy button [secondary alert success]">Go Crazy</a></li>
+                          <li><a href="#" class="mashup-crazy-stop button [secondary alert success]">Woah.. settle down there.</a></li>
+
+                  </div>
+              </row>
+
+
       </div>
 
 
@@ -77,31 +102,21 @@
 
       <aside class="large-4 columns">
 
-          <h5>Face library</h5>
+          <h3>Face library</h5>
+          <div class="panel face-library-container" >
+              <ul class="face-library">
 
-          <ul class="face-library">
-              <li>
+              </ul>
+              <div class="face-library-empty">Take some pictures to fill me up!</div>
 
-              <a class="th" role="button" aria-label="Thumbnail" href="#">
-                  <img aria-hidden=true src="img/face.jpg"/>
-              </a>
-              </li>
-              <li>
-              <a class="th" role="button" aria-label="Thumbnail" href="#">
-                  <img aria-hidden=true src="img/face.jpg"/>
-              </a>
-              </li>
-              <li>
-              <a class="th" role="button" aria-label="Thumbnail" href="#">
-                  <img aria-hidden=true src="img/face.jpg"/>
-              </a>
-              </li>
-          </ul>
+          </div>
 
           <div class="panel">
-              <h5>Featured</h5>
-              <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-              <a href="#">Read More →</a>
+              <h5>How to use</h5>
+              <ol>
+                  <li>Take some photos using the red buttons</li>
+                  <li>Once you have at least 3 photos, switch to mashup mode</li>
+              </ol>
           </div>
 
       </aside>
